@@ -1,0 +1,4 @@
+# Project exclude paths
+/hoteles/target/
+/reservas/target/
+/vuelos/target/
