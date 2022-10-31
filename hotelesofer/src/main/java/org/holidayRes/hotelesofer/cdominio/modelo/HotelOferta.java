@@ -17,7 +17,7 @@ public class HotelOferta {
     @Id
     String id;
     @Field
-    String idHotelOferta;
+    String idHotel;
     @Field
     Double numHabitaciones;
     @Field

@@ -18,9 +18,7 @@ public class VueloOferta {
     @Id
     String id;
     @Field
-    String origen;
-    @Field
-    String destino;
+    String idVuelo;
     @Field
     Double numAsientos;
     @Field

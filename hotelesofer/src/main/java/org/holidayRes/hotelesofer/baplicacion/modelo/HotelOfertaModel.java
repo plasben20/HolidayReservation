@@ -9,8 +9,8 @@ import lombok.*;
 @AllArgsConstructor
 public class HotelOfertaModel {
     private String id;
-    String idHotelOferta;
-    Double numHabitaciones;
-    Double precioHabitacion;
-    Double precioTotal;
+    private String idHotel;
+    private Double numHabitaciones;
+    private Double precioHabitacion;
+    private Double precioTotal;
 }

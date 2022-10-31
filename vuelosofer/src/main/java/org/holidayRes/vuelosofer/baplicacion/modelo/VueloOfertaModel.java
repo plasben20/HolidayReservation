@@ -9,8 +9,7 @@ import lombok.*;
 @AllArgsConstructor
 public class VueloOfertaModel {
     private String id;
-    private String origen;
-    private String destino;
+    private String idVuelo;
     private Double numAsientos;
     private Double precioAsiento;
     private Double costeTotal;

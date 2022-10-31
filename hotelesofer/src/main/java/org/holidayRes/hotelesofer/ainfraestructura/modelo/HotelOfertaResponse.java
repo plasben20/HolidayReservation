@@ -9,7 +9,7 @@ import lombok.*;
 @Setter
 public class HotelOfertaResponse {
     private String id;
-    private String idHotelOferta;
+    private String idHotel;
     private Double numHabitaciones;
     private Double precioHabitacion;
     private Double precioTotal;
