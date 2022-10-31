@@ -26,6 +26,14 @@ public class ReservaControllerImpl implements ReservaController{
         return new ResponseEntity<ReservaResponse>(reserva, HttpStatus.OK);
     }
 
+    @Override
+    @PostMapping
+    @ResponseStatus(value = HttpStatus.OK)
+    public ResponseEntity<ReservaResponse> postReserva() {
+        ReservaResponse reservaResponse= null;
+        return new ResponseEntity<>(reservaResponse,HttpStatus.OK);
+    }
+
     @GetMapping
     @ResponseStatus(value = HttpStatus.OK)
     public ResponseEntity<List<ReservaResponse>> getAllinList() {

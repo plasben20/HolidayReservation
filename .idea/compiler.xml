@@ -18,18 +18,26 @@
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.20/lombok-1.18.20.jar" />
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok-mapstruct-binding/0.2.0/lombok-mapstruct-binding-0.2.0.jar" />
         </processorPath>
-        <module name="reservas" />
-        <module name="vuelos" />
+        <module name="hotelesofer" />
+        <module name="vuelosofer" />
         <module name="hoteles" />
+        <module name="vuelos" />
+        <module name="reservas" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="vuelos (1)" target="11" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="HolidayReservation" options="" />
       <module name="hoteles" options="-parameters" />
+      <module name="hotelesofer" options="-parameters" />
       <module name="reservas" options="-parameters" />
       <module name="vuelos" options="-parameters" />
+      <module name="vuelos (1)" options="-parameters" />
+      <module name="vuelosofer" options="-parameters" />
     </option>
   </component>
 </project>

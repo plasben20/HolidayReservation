@@ -127,12 +127,11 @@
         </plugins>
     </build>
 
-
-
-
     <modules>
         <module>vuelos</module>
         <module>hoteles</module>
         <module>reservas</module>
+        <module>hotelesofer</module>
+        <module>vuelosofer</module>
     </modules>
 </project>

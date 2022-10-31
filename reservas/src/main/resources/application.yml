@@ -25,7 +25,8 @@ spring:
       matching-strategy: ant-path-matcher
 app:
   environment:
-    reservas-host: ${reservas-host:localhost}
+    vuelos-host: localhost
+    hoteles-host: localhost
 
 --- # Testing configuration
 
@@ -51,4 +52,5 @@ spring:
 
 app:
   environment:
-    reservas-host: none
+    vuelos-host: localhost
+    hoteles-host: localhost

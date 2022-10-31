@@ -17,19 +17,14 @@ import javax.persistence.Id;
 public class Vuelo {
     @Id
     String id;
-
     @Field
     String origen;
-
     @Field
     String destino;
-
     @Field
     Double numAsientos;
-
     @Field
     Double precioAsiento;
-
     @Field
     Double costeTotal;
 }

@@ -8,8 +8,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @RestController()
 @RequestMapping("/reservas")
 public interface ReservaController {
@@ -26,7 +24,7 @@ public interface ReservaController {
     @ApiResponses({
             @ApiResponse(code = 200, message = "Obtenemos correctamente la lista reserva"),
     })
-    @GetMapping
+    @PostMapping
     @ResponseStatus(value = HttpStatus.OK)
-    public ResponseEntity<List<ReservaResponse>> getAllinList();
+    public ResponseEntity<ReservaResponse> postReserva();
 }
