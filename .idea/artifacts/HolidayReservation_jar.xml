@@ -3,9 +3,9 @@
     <output-path>$PROJECT_DIR$/out/artifacts/HolidayReservation_jar</output-path>
     <root id="archive" name="HolidayReservation.jar">
       <element id="module-output" name="HolidayReservation" />
-      <element id="module-output" name="vuelos" />
-      <element id="module-output" name="hoteles" />
-      <element id="module-output" name="reservas" />
+      <element id="module-output" name="zvuelos" />
+      <element id="module-output" name="zhoteles" />
+      <element id="module-output" name="zreservas" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/fasterxml/classmate/1.5.1/classmate-1.5.1.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/io/swagger/swagger-annotations/1.5.14/swagger-annotations-1.5.14.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$MAVEN_REPOSITORY$/jakarta/persistence/jakarta.persistence-api/2.2.3/jakarta.persistence-api-2.2.3.jar" path-in-jar="/" />

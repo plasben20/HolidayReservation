@@ -3,18 +3,20 @@ package org.holidayRes.vuelosofer.ainfraestructura.controller;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
+import org.holidayRes.vuelosofer.ainfraestructura.modelo.VueloOfertaRequest;
 import org.holidayRes.vuelosofer.ainfraestructura.modelo.VueloOfertaResponse;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController()
-@RequestMapping("/vueloOfertasOfer")
+@RequestMapping("/vueloOferta")
 public interface VueloOfertaController {
 
-    @ApiOperation(value = "Obtenemos una vueloOferta con su descuento")
+    @ApiOperation(value = "Obtenemos una oferta de vuelo")
     @ApiResponses({
             @ApiResponse(code = 200, message = "Obtenemos correctamente la vueloOferta"),
     })
@@ -29,4 +31,13 @@ public interface VueloOfertaController {
     @GetMapping
     @ResponseStatus(value = HttpStatus.OK)
     public ResponseEntity<List<VueloOfertaResponse>> getAllinList();
+
+    @ApiOperation(value = "Creamos una Oferta de vuelo")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "Creamos correctamente la Oferta"),
+    })
+    @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE,
+            consumes = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(HttpStatus.CREATED)
+    public ResponseEntity<?> postOfertaVuelo(@RequestBody VueloOfertaRequest vueloOfertaRequest);
 }

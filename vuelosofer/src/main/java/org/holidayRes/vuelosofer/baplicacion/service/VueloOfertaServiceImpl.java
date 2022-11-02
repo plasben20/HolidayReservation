@@ -1,5 +1,6 @@
 package org.holidayRes.vuelosofer.baplicacion.service;
 
+import org.holidayRes.vuelosofer.ainfraestructura.restclients.VuelosRestClient;
 import org.holidayRes.vuelosofer.baplicacion.mapper.VueloOfertaMapper;
 import org.holidayRes.vuelosofer.baplicacion.modelo.VueloOfertaModel;
 import org.holidayRes.vuelosofer.cdominio.repository.VueloOfertaRepository;
@@ -13,12 +14,19 @@ public class VueloOfertaServiceImpl implements VueloOfertaService {
     @Autowired
     VueloOfertaRepository vueloOfertaRepository;
 
+    @Autowired
+    VuelosRestClient vuelosRestClient;
+
     public void upsertVueloOferta(VueloOfertaModel vueloOferta) {
         vueloOfertaRepository.save(VueloOfertaMapper.INSTANCE.mapToVueloOfertaEntity(vueloOferta));
     }
 
     public VueloOfertaModel findVueloOfertaById(String referencia){
         return VueloOfertaMapper.INSTANCE.mapToVueloOfertaModel(vueloOfertaRepository.findById(referencia).orElse(null));
+    }
+
+    public boolean existeVuelo(String referencia){
+        return (vuelosRestClient.getById(referencia)!=null);
     }
 
     public boolean enTabla(String referencia){ return (findVueloOfertaById(referencia)!=null); }

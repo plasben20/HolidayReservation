@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
-    <file url="file://$PROJECT_DIR$/hoteles/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/hoteles/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/hotelesofer/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/reservas/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-servicio-config-server/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-servicio-eureka-server/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-servicio-gateway-server/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/springboot-servicio-item/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/vuelos/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/vuelos/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/vuelosofer/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/vuelosofertwo/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zhoteles/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zhoteles/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zhoteles2ofer/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zhoteles2ofer/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zhotelesofer/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zhotelesofer/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zhotelesofernew/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zreservas/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zvuelos/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/zvuelos/src/main/resources" charset="UTF-8" />
   </component>
 </project>

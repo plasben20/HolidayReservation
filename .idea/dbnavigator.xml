@@ -47,6 +47,10 @@
     <connection id="7feecca3-3efd-4aef-94e2-4c20a1e9cd77" />
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
+    <filter-actions connection-id="3b86685f-efb8-4a83-8175-1dbd04eb5bb0" dataset="hotelesdb.hotel" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="3b86685f-efb8-4a83-8175-1dbd04eb5bb0" dataset="hotelesdb.hotel_oferta" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="7feecca3-3efd-4aef-94e2-4c20a1e9cd77" dataset="public.vuelo" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="7feecca3-3efd-4aef-94e2-4c20a1e9cd77" dataset="public.vuelo_oferta" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="6cac0317-f79e-4707-b8ec-8c13703c6990" dataset="reservasdb.reserva" active-filter-id="" />
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
@@ -54,6 +58,9 @@
   </component>
   <component name="DBNavigator.Project.ExecutionManager">
     <retain-sticky-names value="false" />
+  </component>
+  <component name="DBNavigator.Project.FileConnectionMappingManager">
+    <mapping file-url="file://$PROJECT_DIR$/zhoteles/src/main/resources/import.sql" connection-id="3b86685f-efb8-4a83-8175-1dbd04eb5bb0" session-id="MAIN" current-schema="hotelesdb" />
   </component>
   <component name="DBNavigator.Project.MethodExecutionManager">
     <method-browser />
@@ -74,7 +81,9 @@
     <diagnostics-history />
   </component>
   <component name="DBNavigator.Project.ScriptExecutionManager" clear-outputs="true">
-    <recently-used-interfaces />
+    <recently-used-interfaces>
+      <mapping database-type="POSTGRES" interface-id="DEFAULT" />
+    </recently-used-interfaces>
   </component>
   <component name="DBNavigator.Project.Settings">
     <connections>

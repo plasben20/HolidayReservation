@@ -1,32 +1,15 @@
-server:
-  port: 8092
-
 spring:
   config:
     activate:
       on-profile: default
   application:
     name: vuelosofer
-  datasource:
-    driver-class-name: org.postgresql.Driver
-    username: benedi
-    password: benedi
-    url: jdbc:postgresql://${vuelos-db:localhost}:${vuelos-port:5432}/vuelosdb
-    platform: postgres
-  jpa:
-    show-sql: true
-    generate-ddl: true
-    hibernate:
-      ddl-auto: create
-    database: postgresql
-  mvc:
-    pathmatch:
-      matching-strategy: ant-path-matcher
+
 app:
   environment:
     reservas-host: ${reservas-host:localhost}
 
---- # Testing configuration
+--- # Testing config
 
 server:
   port: ${random.int(5000,5100)}

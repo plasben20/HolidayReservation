@@ -1,0 +1,23 @@
+server:
+  port: ${PORT:0}
+
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    username: benedi
+    password: benedi
+    url: jdbc:postgresql://${vuelos-db:localhost}:${vuelos-port:5432}/vuelosdb
+    platform: postgres
+  jpa:
+    show-sql: true
+    generate-ddl: true
+    hibernate:
+      ddl-auto: create
+    database: postgresql
+  mvc:
+    pathmatch:
+      matching-strategy: ant-path-matcher
+
+logging:
+  level:
+    org.hibernate.SQL: debug

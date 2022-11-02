@@ -1,13 +1,11 @@
 package org.holidayRes.vuelosofer.ainfraestructura.modelo;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
+@Setter
 @Builder
 public class VueloOfertaRequest {
     private String id;
