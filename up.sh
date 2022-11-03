@@ -11,7 +11,7 @@ sudo bash down.sh
 if [ "$1" == "development" ];
   then printf "\n[up.sh] Development mode. It won't tear up java microservices\n"
   printf "\n[up.sh] Tearing up database containers\n"
-  sudo docker-compose up --build ticket-order-db ticket-price-db
+  sudo docker-compose up --build servicio-config-server servicio-eureka-server servicio-gateway-server
   exit 0
 fi
 

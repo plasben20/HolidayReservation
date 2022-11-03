@@ -3,7 +3,7 @@ services:
   reservas:
     build: ./reservas
     ports:
-      - "8080:8080"
+      - "8081:8081"
     depends_on:
       - reservas-db
     environment:
@@ -24,7 +24,7 @@ services:
   hoteles:
     build: ./hoteles
     ports:
-      - "8081:8081"
+      - "8082:8082"
     depends_on:
       - hoteles-db
     environment:
@@ -36,7 +36,7 @@ services:
   hotelesofer:
     build: ./hotelesofer
     ports:
-      - "8081:8081"
+      - "8083:8083"
     depends_on:
       - hoteles-db
     environment:
@@ -56,7 +56,7 @@ services:
   vuelos:
     build: ./vuelos
     ports:
-      - "8082:8082"
+      - "8084:8084"
     depends_on:
       - vuelos-db
     environment:
@@ -68,7 +68,7 @@ services:
   vuelosofer:
     build: ./vuelosofer
     ports:
-      - "8082:8082"
+      - "8085:8085"
     depends_on:
       - vuelos-db
     environment:
@@ -86,6 +86,21 @@ services:
       - "POSTGRES_PASSWORD=benedi"
       - "DEFAULT_ENCODING=UTF8"
       - "POSTGRES_DB=vuelosdb"
+
+  servicio-eureka-server:
+    build: ./springboot-servicio-eureka-server
+    ports:
+      - "8761:8761"
+
+  servicio-config-server:
+    build: ./springboot-servicio-config-server
+    ports:
+      - "8888:8888"
+
+  servicio-gateway-server:
+    build: ./springboot-servicio-gateway-server
+    ports:
+      - "8090:8090"
 
   rabbitmq:
     image: rabbitmq:3.7.6-management

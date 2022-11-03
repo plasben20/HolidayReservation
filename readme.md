@@ -1,20 +1,32 @@
 # Spring Cloud Session - Source Code
 
 # Guía de uso
-1. ```git clone https://github.com/Curso-Microservicios-2022/spring-cloud-session.git```.
-2. ```docker-compose up -d``` para iniciar Rabbit MQ y Zipkin.
-3. Configurar la ruta spring.cloud.config.server.git.uri en el servidor de configuraciones con el repositorio de configuraciones.
-4. Actualizar las rutas de Rabbit y Zipkin en el fichero application.yml del repositorio de configuraciones con la direccion IP del host.
-5. Inicializar el repositorio de configuraciones como reposirotio git.
-6. Desde el IDE, arrancar los servicios en el siguiente orden: servidor de configuraciones, eureka, gatewat, item-service, product-service.
-7. Utilizar la colección de postman para realizar peticiones.
-
+Para iniciar la aplicación es necesario como mínimo iniciar los contenedores de las bases de datos.
+Estan configurados en el docker-compose.yml
+Además están doquerizados los demás microservicios, pero no he conseguido arrancar los micros con
+el config server, eureka y gateway.
+Se puede lanzar los contenedores de bases de datos y los de eureka, config y gateway sin los usados para
+la aplicación.
+Se compone de los tres micros comentados y además de cinco micros más:
+	- vuelos (micro que contiene la gestion de vuelos, tabla vuelos) -- ataca a una base de datos PostgreSQL de vuelos
+			hacia la tabla vuelos 
+	- hoteles (micro que contiene la gestión de hoteles, tabla hoteles) -- ataca a una base de datos Mysql de hoteles
+			hacia la tabla hoteles
+	- vuelosofer (micro que contiene la gestion de reservas hacia vuelos) -- ataca hacia la base de datos vuelos,
+			a la tabla vuelos_oferta
+	- hotelesofer (micro que contiene la gestión de reservas hacia hoteles) -- ataca hacia la base de datos hoteles,
+			a la tabla hoteles_oferta
+	- reservas (micro que gestiona una reserva de las reservas que hay de vuelos y de hoteles) -- ataca a una base
+			de datos Mysql de reservas, hacia la tabla reservas. Tiene relación indirecta con vuelos_oferta 
+			y hoteles_oferta.
 # Diagrama de componentes
 
 
+	
+
 
 # Documentación
-- Fichero de la colección de Postman ```(Hiberus_Sesion_Sprint_Cloud.postman_collection.json)```
+- Fichero de la colección de Postman ```(EurekaVuelosHoteles.postman_collection.json)```
 - Eureka: http://localhost:8761/
 - RabbitMq: http://localhost:15672/#/
 	usr / pwd: guest / guest
@@ -22,4 +34,4 @@
 - Config server: http://localhost:8888/<service_name>/default
 
 # Autor del enunciado
-José Ángel Martínez Vera
+Tomás Benedi Santos

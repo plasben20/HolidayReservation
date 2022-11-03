@@ -1,0 +1,58 @@
+{
+	"info": {
+		"_postman_id": "20610530-6e61-4808-acf7-a0631b31fc84",
+		"name": "EurekaVuelosHoteles",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23603948"
+	},
+	"item": [
+		{
+			"name": "Get Vuelos en su micro (hace falta cambiar de puerto)",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Post Reserva de vuelo",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Get de oferta de vuelo desde el propio micro (hace falta cambiar puerto)",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Post de Reserva de Ofertas",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Get de reserva de hotel (hace falta indicar puerto)",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Post de Reserva de vuelo y hotel",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
