@@ -1,6 +1,0 @@
-spring:
-  application:
-    name: servicio-items
-  cloud:
-    config:
-      uri: http://${CONFIG_SERVER:localhost}:8888

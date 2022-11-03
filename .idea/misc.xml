@@ -5,11 +5,12 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/zhotelesofer/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
       <set>
+        <option value="$PROJECT_DIR$/springboot-servicio-item/pom.xml" />
+        <option value="$PROJECT_DIR$/vuelosofer/pom.xml" />
         <option value="$PROJECT_DIR$/zhoteles2ofer/pom.xml" />
       </set>
     </option>
