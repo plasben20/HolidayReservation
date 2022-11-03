@@ -128,16 +128,13 @@
     </build>
 
     <modules>
-        <module>zvuelos</module>
-        <module>zhoteles</module>
-        <module>zreservas</module>
+        <module>vuelos</module>
+        <module>hoteles</module>
+        <module>reservas</module>
         <module>vuelosofer</module>
-        <module>zhotelesofernew</module>
+        <module>hotelesofer</module>
         <module>springboot-servicio-config-server</module>
         <module>springboot-servicio-eureka-server</module>
         <module>springboot-servicio-gateway-server</module>
-        <module>springboot-servicio-item</module>
-        <module>vuelosofertwo</module>
-
     </modules>
 </project>

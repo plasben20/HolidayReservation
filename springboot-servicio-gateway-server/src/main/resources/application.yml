@@ -2,12 +2,20 @@ spring:
   cloud:
     gateway:
       routes:
-      - id: servicio-productos
-        uri: lb://servicio-productos
+      - id: hotelesofer
+        uri: lb://hotelesofer
         predicates:
-          - Path=/api-productos/**
+          - Path=/hotelOfertas/**
         #filters:
         #  - StripPrefix=2
+      - id: vuelossofer
+        uri: lb://vuelosofer
+        predicates:
+          - Path=/vueloOfertas/**
+      - id: reservas
+        uri: lb://reservas
+        predicates:
+          - Path=/reservas/**
       - id: servicio-items
         uri: lb://servicio-items
         predicates:
