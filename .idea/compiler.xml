@@ -23,9 +23,9 @@
         </processorPath>
         <module name="hotelesofer" />
         <module name="vuelosofer" />
-        <module name="reservas" />
         <module name="vuelos" />
         <module name="hoteles" />
+        <module name="reservas" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

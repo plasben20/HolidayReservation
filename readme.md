@@ -12,13 +12,13 @@ la aplicación.
 
 Se compone de los tres micros comentados y además de cinco micros más:
 
-- vuelos (micro que contiene la gestion de vuelos, tabla vuelos) -- ataca a una base de datos PostgreSQL de vuelos
+- vuelos (micro que contiene la gestión de vuelos, tabla vuelos) -- ataca a una base de datos PostgreSQL de vuelos
 			hacia la tabla vuelos 
 
 - hoteles (micro que contiene la gestión de hoteles, tabla hoteles) -- ataca a una base de datos Mysql de hoteles
 			hacia la tabla hoteles
 
-- vuelosofer (micro que contiene la gestion de reservas hacia vuelos) -- ataca hacia la base de datos vuelos,
+- vuelosofer (micro que contiene la gestión de reservas hacia vuelos) -- ataca hacia la base de datos vuelos,
 			a la tabla vuelos_oferta
 
 - hotelesofer (micro que contiene la gestión de reservas hacia hoteles) -- ataca hacia la base de datos hoteles,
@@ -28,9 +28,10 @@ Se compone de los tres micros comentados y además de cinco micros más:
 			de datos Mysql de reservas, hacia la tabla reservas. Tiene relación indirecta con vuelos_oferta 
 			y hoteles_oferta.
 
+
 # Diagrama de componentes
 
-
+![](DiagramaHolidayReservation.jpg)
 	
 
 
