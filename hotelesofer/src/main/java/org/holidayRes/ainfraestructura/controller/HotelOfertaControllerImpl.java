@@ -26,7 +26,7 @@ public class HotelOfertaControllerImpl implements HotelOfertaController{
     public ResponseEntity<HotelOfertaResponse> getHotelOfertabyReferencia(@PathVariable String referencia){
         HotelOfertaResponse hotelOferta = HotelOfertaRestMapper.INSTANCE.mapToHotelOfertaResponse(hotelOfertaService.findHotelOfertaById(referencia));
         if(hotelOferta==null) return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
-        return new ResponseEntity<HotelOfertaResponse>(hotelOferta, HttpStatus.OK);
+        return new ResponseEntity<>(hotelOferta, HttpStatus.OK);
     }
 
     @GetMapping
@@ -34,7 +34,7 @@ public class HotelOfertaControllerImpl implements HotelOfertaController{
     public ResponseEntity<List<HotelOfertaResponse>> getAllinList() {
         List<HotelOfertaResponse> listaHotelOfertas = HotelOfertaRestMapper.INSTANCE.mapToHotelOfertaListResponse(hotelOfertaService.findAllHotelOfertas());
         if (listaHotelOfertas.isEmpty()) return new ResponseEntity<>(new ArrayList<>(),HttpStatus.NO_CONTENT);
-        return new ResponseEntity<List<HotelOfertaResponse>>(listaHotelOfertas,HttpStatus.OK);
+        return new ResponseEntity<>(listaHotelOfertas,HttpStatus.OK);
     }
 
     @Override
@@ -42,10 +42,14 @@ public class HotelOfertaControllerImpl implements HotelOfertaController{
             consumes = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<?> postOfertaHotel(@RequestBody HotelOfertaRequest hotelOfertaRequest) {
+        //Compruebo nulos
+        if (hotelOfertaService.comprobarNulos(hotelOfertaRequest))
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         // Controlar que la referencia este en la tabla hotel
-        if(!(hotelOfertaRequest.getId().matches("OHOT-[0-9]{5}-[0-9]{3}"))) return new ResponseEntity("Id de Oferta de habitaciones de Hotel debe tener el formato: 'OHOT-12345-123'", HttpStatus.CONFLICT);
+        if (!hotelOfertaService.comprobacionesDatosReserva(HotelOfertaRestMapper.INSTANCE.mapToHotelOfertaModel(hotelOfertaRequest)))
+            return new ResponseEntity<>("Id de Oferta de habitaciones de Hotel debe tener el formato: 'OHOT-12345-123'", HttpStatus.CONFLICT);
         try {
-            if (hotelOfertaService.existeHotel(hotelOfertaRequest.getIdHotel())==false) return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            if (!hotelOfertaService.existeHotel(hotelOfertaRequest.getIdHotel())) return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }catch (FeignException.NotFound fenf){
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }

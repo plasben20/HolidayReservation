@@ -1,5 +1,6 @@
 package org.holidayRes.baplicacion.service;
 
+import org.holidayRes.ainfraestructura.modelo.HotelOfertaRequest;
 import org.holidayRes.ainfraestructura.restclients.HotelesRestClient;
 import org.holidayRes.baplicacion.mapper.HotelOfertaMapper;
 import org.holidayRes.baplicacion.modelo.HotelOfertaModel;
@@ -28,6 +29,7 @@ public class HotelOfertaServiceImpl implements HotelOfertaService {
     public boolean enTabla(String referencia){ return (findHotelOfertaById(referencia)!=null); }
 
     public boolean existeHotel(String referencia){
+        if (referencia==null) return false;
         return (hotelesRestClient.getById(referencia)!=null);
     }
 
@@ -38,5 +40,13 @@ public class HotelOfertaServiceImpl implements HotelOfertaService {
 
     public List<HotelOfertaModel> findAllHotelOfertas() {
         return HotelOfertaMapper.INSTANCE.mapToHotelOfertaListModel(hotelOfertaRepository.findAll());
+    }
+
+    public boolean comprobacionesDatosReserva(HotelOfertaModel hotelOfertaModel) {
+        return hotelOfertaModel.getId().matches("OHOT-\\d{5}-\\d{3}");
+    }
+
+    public boolean comprobarNulos(HotelOfertaRequest hotelOfertaRequest) {
+        return (hotelOfertaRequest.getId()==null || hotelOfertaRequest.getIdHotel()==null);
     }
 }

@@ -25,9 +25,10 @@ public class VueloOfertaControllerImpl implements VueloOfertaController{
     @GetMapping("/{referencia}")
     @ResponseStatus(value = HttpStatus.OK)
     public ResponseEntity<VueloOfertaResponse> getVueloOfertabyReferencia(@PathVariable String referencia){
+        if (referencia.equals(null)) return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         VueloOfertaResponse vueloOferta = VueloOfertaRestMapper.INSTANCE.mapToVueloOfertaResponse(vueloOfertaService.findVueloOfertaById(referencia));
-        if(vueloOferta==null) return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
-        return new ResponseEntity<VueloOfertaResponse>(vueloOferta, HttpStatus.OK);
+        if(vueloOferta==null) return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(vueloOferta, HttpStatus.OK);
     }
 
     @GetMapping
@@ -35,7 +36,7 @@ public class VueloOfertaControllerImpl implements VueloOfertaController{
     public ResponseEntity<List<VueloOfertaResponse>> getAllinList() {
         List<VueloOfertaResponse> listaVueloOfertasOferta = VueloOfertaRestMapper.INSTANCE.mapToVueloOfertaListResponse(vueloOfertaService.findAllVueloOfertasOferta());
         if (listaVueloOfertasOferta.isEmpty()) return new ResponseEntity<>(new ArrayList<>(),HttpStatus.NO_CONTENT);
-        return new ResponseEntity<List<VueloOfertaResponse>>(listaVueloOfertasOferta,HttpStatus.OK);
+        return new ResponseEntity<>(listaVueloOfertasOferta,HttpStatus.OK);
     }
 
     @Override
@@ -44,9 +45,12 @@ public class VueloOfertaControllerImpl implements VueloOfertaController{
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<?> postOfertaVuelo(VueloOfertaRequest vueloOfertaRequest) {
         // Controlar que la referencia este en la tabla vuelo
-        if(!(vueloOfertaRequest.getId().matches("OVUE-[0-9]{5}-[0-9]{3}"))) return new ResponseEntity("Id de Oferta de vuelos debe tener el formato: 'OVUE-12345-123'", HttpStatus.CONFLICT);
+        if (vueloOfertaService.comprobarNulos(vueloOfertaRequest))
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        if (!vueloOfertaService.comprobacionesDatosReserva(VueloOfertaRestMapper.INSTANCE.mapToVueloOfertaModel(vueloOfertaRequest)))
+            return new ResponseEntity<>("Id de Oferta de vuelo debe tener el formato: 'OVUE-12345-123'", HttpStatus.CONFLICT);
         try {
-            if (vueloOfertaService.existeVuelo(vueloOfertaRequest.getIdVuelo()) == false)
+            if (!vueloOfertaService.existeVuelo(vueloOfertaRequest.getIdVuelo()))
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }catch (FeignException.NotFound fenf){
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);

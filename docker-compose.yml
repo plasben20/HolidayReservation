@@ -20,6 +20,7 @@ services:
       - "MYSQL_DATABASE=reservasdb"
       - "MYSQL_ROOT_PASSWORD=root"
       - "DEFAULT_ENCODING=UTF8"
+
   hoteles:
     build: ./hoteles
     ports:
@@ -31,6 +32,19 @@ services:
       - "hoteles-db=hoteles-db"
       - "reservas-host=reservas"
     restart: always
+
+  hotelesofer:
+    build: ./hotelesofer
+    ports:
+      - "8081:8081"
+    depends_on:
+      - hoteles-db
+    environment:
+      - "hoteles-port=3306"
+      - "hoteles-db=hoteles-db"
+      - "reservas-host=reservas"
+    restart: always
+
   hoteles-db:
     image: mysql:8.0.30
     ports:
@@ -50,6 +64,19 @@ services:
       - "reservas-host=reservas"
       - "vuelos-port=5432"
     restart: always
+
+  vuelosofer:
+    build: ./vuelosofer
+    ports:
+      - "8082:8082"
+    depends_on:
+      - vuelos-db
+    environment:
+      - "vuelos-db=vuelos-db"
+      - "reservas-host=reservas"
+      - "vuelos-port=5432"
+    restart: always
+
   vuelos-db:
     image: postgres
     ports:

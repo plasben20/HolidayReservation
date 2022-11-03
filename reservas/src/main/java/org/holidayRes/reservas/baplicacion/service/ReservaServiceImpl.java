@@ -42,11 +42,25 @@ public class ReservaServiceImpl implements ReservaService {
 
     @Override
     public boolean hayOfertaVuelo(String idVuelo) {
+        if (idVuelo==null) return false;
         return (vueloReservaRestClient.getById(idVuelo)!=null);
     }
 
     @Override
     public boolean hayOfertaHotel(String idHotel) {
+        if (idHotel==null) return false;
         return (hotelReservaRestClient.getById(idHotel)!=null);
+    }
+
+    public boolean comprobacionesDatosReserva(String idReserva) {
+        return (idReserva.matches("RES-\\d{5}-\\d{3}"));
+    }
+
+    public boolean ComprobarIdentificadorVuelo(String idVuelo) {
+        return !(idVuelo==null);
+    }
+
+    public boolean ComprobarIdentificadorHotel(String idHotel) {
+        return !(idHotel==null);
     }
 }

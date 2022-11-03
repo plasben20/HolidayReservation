@@ -1,5 +1,6 @@
 package org.holidayRes.baplicacion.service;
 
+import org.holidayRes.ainfraestructura.modelo.VueloOfertaRequest;
 import org.holidayRes.ainfraestructura.restclients.VuelosRestClient;
 import org.holidayRes.baplicacion.mapper.VueloOfertaMapper;
 import org.holidayRes.baplicacion.modelo.VueloOfertaModel;
@@ -38,5 +39,13 @@ public class VueloOfertaServiceImpl implements VueloOfertaService {
 
     public List<VueloOfertaModel> findAllVueloOfertasOferta() {
         return VueloOfertaMapper.INSTANCE.mapToVueloOfertaListModel(vueloOfertaRepository.findAll());
+    }
+
+    public boolean comprobacionesDatosReserva(VueloOfertaModel vueloOfertaModel) {
+        return (vueloOfertaModel.getId().matches("OVUE-\\d{5}-\\d{3}"));
+    }
+
+    public boolean comprobarNulos(VueloOfertaRequest vueloOfertaRequest) {
+        return (vueloOfertaRequest.getId()==null || vueloOfertaRequest.getIdVuelo()==null);
     }
 }

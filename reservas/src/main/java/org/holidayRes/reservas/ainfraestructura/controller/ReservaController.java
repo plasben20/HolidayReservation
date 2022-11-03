@@ -27,5 +27,5 @@ public interface ReservaController {
     })
     @PostMapping
     @ResponseStatus(value = HttpStatus.OK)
-    public ResponseEntity<ReservaResponse> postReserva(@RequestBody ReservaRequest request);
+    public ResponseEntity<?> postReserva(@RequestBody ReservaRequest request);
 }

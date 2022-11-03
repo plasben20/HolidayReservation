@@ -1,5 +1,6 @@
 package org.holidayRes.reservas.ainfraestructura.controller;
 
+import feign.FeignException;
 import org.holidayRes.reservas.ainfraestructura.dto.ReservaRequest;
 import org.holidayRes.reservas.ainfraestructura.mapper.ReservaRestMapper;
 import org.holidayRes.reservas.ainfraestructura.dto.ReservaResponse;
@@ -38,12 +39,23 @@ public class ReservaControllerImpl implements ReservaController{
     @Override
     @PostMapping
     @ResponseStatus(value = HttpStatus.OK)
-    public ResponseEntity<ReservaResponse> postReserva(@RequestBody ReservaRequest request) {
+    public ResponseEntity<?> postReserva(@RequestBody ReservaRequest request) {
         if (request==null) return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        if (!reservaService.hayOfertaVuelo(request.getIdVuelo())) return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        if (!reservaService.hayOfertaHotel(request.getIdHotel())) return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        // Comprobar que mete datos
+        if (!reservaService.ComprobarIdentificadorVuelo(request.getIdVuelo()))
+            return new ResponseEntity<>("Debe introducir un identificador de vuelo",HttpStatus.NO_CONTENT);
+        if (!reservaService.ComprobarIdentificadorHotel(request.getIdHotel()))
+            return new ResponseEntity<>("Debe introducir un identificador de hotel",HttpStatus.NO_CONTENT);
+        if (!reservaService.comprobacionesDatosReserva(request.getId()))
+            return new ResponseEntity<>("Id de la reserva debe tener el formato: 'RES-12345-123'", HttpStatus.CONFLICT);
+        try {
+            if (!reservaService.hayOfertaVuelo(request.getIdVuelo())) return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            if (!reservaService.hayOfertaHotel(request.getIdHotel())) return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }catch (FeignException.NotFound fenf){
+            return new ResponseEntity<>("No se ha encontrado una oferta de hotel o vuelo indicado", HttpStatus.NOT_FOUND);
+        }
         reservaService.upsertReserva(ReservaRestMapper.INSTANCE.mapToReservaModel(request));
-        return new ResponseEntity<>(HttpStatus.OK);
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
 }

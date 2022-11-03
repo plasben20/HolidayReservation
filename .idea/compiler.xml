@@ -23,16 +23,19 @@
         </processorPath>
         <module name="hotelesofer" />
         <module name="vuelosofer" />
-        <module name="hoteles" />
         <module name="reservas" />
         <module name="vuelos" />
+        <module name="hoteles" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="springboot-servicio-item" target="11" />
       <module name="vuelos (1)" target="11" />
+      <module name="zhoteles" target="11" />
       <module name="zhoteles2ofer" target="11" />
       <module name="zhotelesofer" target="11" />
+      <module name="zreservas" target="11" />
+      <module name="zvuelos" target="11" />
       <module name="zvuelosofer" target="11" />
     </bytecodeTargetLevel>
   </component>
