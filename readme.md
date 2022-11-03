@@ -5,7 +5,7 @@ Para iniciar la aplicación es necesario como mínimo iniciar los contenedores d
 
 Están configurados en el docker-compose.yml
 Además están dockerizados los demás micro-servicios, pero no he conseguido arrancar los micros con
-el config server, eureka y gateway.
+el config server, eureka y gateway desde docker.
 
 Se lanzan los contenedores de bases de datos y los de zipkin y rabbit:
 - docker compose up reservas-db hoteles-db vuelos-db rabbitmq zipkin
