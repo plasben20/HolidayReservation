@@ -7,8 +7,8 @@ Están configurados en el docker-compose.yml
 Además están dockerizados los demás micro-servicios, pero no he conseguido arrancar los micros con
 el config server, eureka y gateway.
 
-Se puede lanzar los contenedores de bases de datos y los de eureka, config y gateway sin los usados para
-la aplicación.
+Se lanzan los contenedores de bases de datos y los de zipkin y rabbit:
+- docker compose up reservas-db hoteles-db vuelos-db rabbitmq zipkin
 
 Se compone de los tres micros comentados y además de cinco micros más:
 
