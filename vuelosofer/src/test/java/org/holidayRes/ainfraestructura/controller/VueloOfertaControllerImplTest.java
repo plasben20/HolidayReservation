@@ -1,8 +1,6 @@
 package org.holidayRes.ainfraestructura.controller;
 
 import com.google.gson.Gson;
-import feign.FeignException;
-import org.holidayRes.ainfraestructura.mapper.VueloOfertaRestMapper;
 import org.holidayRes.ainfraestructura.modelo.VueloOfertaRequest;
 import org.holidayRes.ainfraestructura.restclients.VuelosRestClient;
 import org.holidayRes.baplicacion.modelo.VueloOfertaModel;
@@ -13,23 +11,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
+import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @AutoConfigureMockMvc
 @SpringBootTest
-@ActiveProfiles("test")
+@ActiveProfiles("testVuelosOfer")
+@DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
 class VueloOfertaControllerImplTest {
 
     @Autowired

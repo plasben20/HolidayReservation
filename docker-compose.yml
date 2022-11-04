@@ -1,49 +1,49 @@
 version: '3.7'
 services:
-  reservas:
-    build: ./reservas
-    ports:
-      - "8081:8081"
-    depends_on:
-      - reservas-db
-    environment:
-      - "reservas-port=3306"
-      - "reservas-db=reservas-db"
-      - "hoteles-host=hoteles"
-      - "vuelos-host=vuelos"
-    restart: always
-  reservas-db:
-    image: mysql:8.0.30
-    ports:
-      - "3307:3306"
-    environment:
-      - "MYSQL_DATABASE=reservasdb"
-      - "MYSQL_ROOT_PASSWORD=root"
-      - "DEFAULT_ENCODING=UTF8"
+#  reservas:
+#    build: ./reservas
+#    ports:
+#      - "8081:8081"
+#    depends_on:
+#      - reservas-db
+#    environment:
+#      - "reservas-port=3306"
+#      - "reservas-db=reservas-db"
+#      - "hoteles-host=hoteles"
+#      - "vuelos-host=vuelos"
+#    restart: always
+#  reservas-db:
+#    image: mysql:8.0.30
+#    ports:
+#      - "3307:3306"
+#    environment:
+#      - "MYSQL_DATABASE=reservasdb"
+#      - "MYSQL_ROOT_PASSWORD=root"
+#      - "DEFAULT_ENCODING=UTF8"
+#
+#  hoteles:
+#    build: ./hoteles
+#    ports:
+#      - "8082:8082"
+#    depends_on:
+#      - hoteles-db
+#    environment:
+#      - "hoteles-port=3306"
+#      - "hoteles-db=hoteles-db"
+#      - "reservas-host=reservas"
+#    restart: always
 
-  hoteles:
-    build: ./hoteles
-    ports:
-      - "8082:8082"
-    depends_on:
-      - hoteles-db
-    environment:
-      - "hoteles-port=3306"
-      - "hoteles-db=hoteles-db"
-      - "reservas-host=reservas"
-    restart: always
-
-  hotelesofer:
-    build: ./hotelesofer
-    ports:
-      - "8083:8083"
-    depends_on:
-      - hoteles-db
-    environment:
-      - "hoteles-port=3306"
-      - "hoteles-db=hoteles-db"
-      - "reservas-host=reservas"
-    restart: always
+#  hotelesofer:
+#    build: ./hotelesofer
+#    ports:
+#      - "8083:8083"
+#    depends_on:
+#      - hoteles-db
+#    environment:
+#      - "hoteles-port=3306"
+#      - "hoteles-db=hoteles-db"
+#      - "reservas-host=reservas"
+#    restart: always
 
   hoteles-db:
     image: mysql:8.0.30
@@ -53,54 +53,70 @@ services:
       - "MYSQL_DATABASE=hotelesdb"
       - "MYSQL_ROOT_PASSWORD=root"
       - "DEFAULT_ENCODING=UTF8"
-  vuelos:
-    build: ./vuelos
-    ports:
-      - "8084:8084"
-    depends_on:
-      - vuelos-db
-    environment:
-      - "vuelos-db=vuelos-db"
-      - "reservas-host=reservas"
-      - "vuelos-port=5432"
-    restart: always
 
-  vuelosofer:
-    build: ./vuelosofer
-    ports:
-      - "8085:8085"
-    depends_on:
-      - vuelos-db
-    environment:
-      - "vuelos-db=vuelos-db"
-      - "reservas-host=reservas"
-      - "vuelos-port=5432"
-    restart: always
-
-  vuelos-db:
-    image: postgres
-    ports:
-      - "5432:5432"
-    environment:
-      - "POSTGRES_USER=benedi"
-      - "POSTGRES_PASSWORD=benedi"
-      - "DEFAULT_ENCODING=UTF8"
-      - "POSTGRES_DB=vuelosdb"
+#  vuelos:
+#    build: ./vuelos
+#    ports:
+#      - "8084:8084"
+#    depends_on:
+#      - vuelos-db
+#    environment:
+#      - "vuelos-db=vuelos-db"
+#      - "reservas-host=reservas"
+#      - "vuelos-port=5432"
+#    restart: always
+#
+#  vuelosofer:
+#    build: ./vuelosofer
+#    ports:
+#      - "8085:8085"
+#    depends_on:
+#      - vuelos-db
+#    environment:
+#      - "vuelos-db=vuelos-db"
+#      - "reservas-host=reservas"
+#      - "vuelos-port=5432"
+#    restart: always
+#
+#  vuelos-db:
+#    image: postgres
+#    ports:
+#      - "5432:5432"
+#    environment:
+#      - "POSTGRES_USER=benedi"
+#      - "POSTGRES_PASSWORD=benedi"
+#      - "DEFAULT_ENCODING=UTF8"
+#      - "POSTGRES_DB=vuelosdb"
 
   servicio-eureka-server:
     build: ./springboot-servicio-eureka-server
     ports:
       - "8761:8761"
+#    networks:
+#      - microservice-network
+    depends_on:
+      - servicio-config-server
+    restart: always
 
   servicio-config-server:
     build: ./springboot-servicio-config-server
     ports:
       - "8888:8888"
+#    environment:
+#      eureka.client.service-url.defaultZone: http://eureka-server:8761/eureka
+    restart: always
 
   servicio-gateway-server:
     build: ./springboot-servicio-gateway-server
     ports:
       - "8090:8090"
+    depends_on:
+      - servicio-config-server
+      - servicio-eureka-server
+#    environment:
+#      eureka.client.service-url.defaultZone: http://eureka-server:8761/eureka
+#      spring.cloud.config.uri: http://config-server:8888
+    restart: always
 
   rabbitmq:
     image: rabbitmq:3.7.6-management

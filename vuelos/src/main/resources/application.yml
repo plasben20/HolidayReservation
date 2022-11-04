@@ -4,30 +4,3 @@ spring:
   cloud:
     config:
       uri: http://${CONFIG_SERVER:localhost}:8888
-
-
---- # Testing config
-
-server:
-  port: ${random.int(5000,5100)}
-
-spring:
-  config:
-    activate:
-      on-profile: test
-  application:
-    name: vuelos
-  datasource:
-    driver-class-name: org.h2.Driver
-    url: jdbc:h2:mem:testdb
-    username: tomas
-    password: tomas
-  jpa:
-    database-platform: org.hibernate.dialect.H2Dialect
-    hibernate:
-      ddl-auto: update
-    show-sql: true
-
-app:
-  environment:
-    reservas-host: none

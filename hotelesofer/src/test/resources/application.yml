@@ -1,0 +1,32 @@
+--- # Testing configuration
+
+server:
+  port: ${random.int(5000,5100)}
+
+spring:
+  config:
+    activate:
+      on-profile: testHotelOfer
+  application:
+    name: payroll
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:testdb
+    username: tomas
+    password: tomas
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  cloud:
+    config:
+      enabled: false
+  zipkin:
+    enabled: false
+  mvc:
+    pathmatch:
+      matching-strategy: ant-path-matcher
+eureka:
+  client:
+    enabled: false

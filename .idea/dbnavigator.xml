@@ -63,9 +63,6 @@
   <component name="DBNavigator.Project.ExecutionManager">
     <retain-sticky-names value="false" />
   </component>
-  <component name="DBNavigator.Project.FileConnectionMappingManager">
-    <mapping file-url="file://$PROJECT_DIR$/zhoteles/src/main/resources/import.sql" connection-id="3b86685f-efb8-4a83-8175-1dbd04eb5bb0" session-id="MAIN" current-schema="hotelesdb" />
-  </component>
   <component name="DBNavigator.Project.MethodExecutionManager">
     <method-browser />
     <execution-history>

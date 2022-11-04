@@ -6,4 +6,6 @@ spring:
   profiles:
     active: native
   cloud.config.server.git:
-    uri: file:~/config
+    uri: https://github.com/plasben20/HolidayReservation/tree/master/config
+#    file:///home/tbenedi/IdeaProjects/spring_cloud_session/config
+#    ~/config

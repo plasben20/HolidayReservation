@@ -3,11 +3,9 @@ package org.holidayRes.reservas.ainfraestructura.controller;
 import com.google.gson.Gson;
 import org.holidayRes.reservas.ainfraestructura.dto.HotelOfertaRequest;
 import org.holidayRes.reservas.ainfraestructura.dto.ReservaRequest;
-import org.holidayRes.reservas.ainfraestructura.dto.ReservaResponse;
 import org.holidayRes.reservas.ainfraestructura.restclients.HotelReservaRestClient;
 import org.holidayRes.reservas.ainfraestructura.restclients.VueloReservaRestClient;
 import org.holidayRes.reservas.baplicacion.modelo.ReservaModel;
-import org.holidayRes.reservas.baplicacion.service.ReservaService;
 import org.holidayRes.reservas.baplicacion.service.ReservaServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -16,10 +14,10 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
+import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -28,7 +26,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @AutoConfigureMockMvc
 @SpringBootTest
-@ActiveProfiles("test")
+@ActiveProfiles("testReservas")
+@DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
 class ReservaControllerImplTest {
 
     @Autowired
@@ -81,7 +80,6 @@ class ReservaControllerImplTest {
                 .precioTotal(1000D)
                 .build();
 
-        //vueloOfertaService.upsertVueloOferta(vueloOfertaModel);
         Mockito.when(reservaService.ComprobarIdentificadorVuelo(reservaRequest.getIdVuelo())).thenReturn(true);
         Mockito.when(reservaService.ComprobarIdentificadorHotel(reservaRequest.getIdHotel())).thenReturn(true);
         Mockito.when(reservaService.comprobacionesDatosReserva(any())).thenReturn(true);
@@ -89,7 +87,6 @@ class ReservaControllerImplTest {
         Mockito.when(reservaService.hayOfertaHotel("OHOT-12345-123")).thenReturn(true);
         Mockito.when(vueloReservaRestClient.getById("OVUE-12345-123")).thenReturn(any());
         Mockito.when(hotelReservaRestClient.getById("OHOT-12345-123")).thenReturn(any());
-        //reservaService.upsertHotelOferta(hotelOfertaModel);
         mockMvc.perform(post("/reservas")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(gson.toJson(reservaRequest))
