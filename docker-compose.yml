@@ -1,49 +1,5 @@
-version: '3.7'
+version: '3.0'
 services:
-#  reservas:
-#    build: ./reservas
-#    ports:
-#      - "8081:8081"
-#    depends_on:
-#      - reservas-db
-#    environment:
-#      - "reservas-port=3306"
-#      - "reservas-db=reservas-db"
-#      - "hoteles-host=hoteles"
-#      - "vuelos-host=vuelos"
-#    restart: always
-#  reservas-db:
-#    image: mysql:8.0.30
-#    ports:
-#      - "3307:3306"
-#    environment:
-#      - "MYSQL_DATABASE=reservasdb"
-#      - "MYSQL_ROOT_PASSWORD=root"
-#      - "DEFAULT_ENCODING=UTF8"
-#
-#  hoteles:
-#    build: ./hoteles
-#    ports:
-#      - "8082:8082"
-#    depends_on:
-#      - hoteles-db
-#    environment:
-#      - "hoteles-port=3306"
-#      - "hoteles-db=hoteles-db"
-#      - "reservas-host=reservas"
-#    restart: always
-
-#  hotelesofer:
-#    build: ./hotelesofer
-#    ports:
-#      - "8083:8083"
-#    depends_on:
-#      - hoteles-db
-#    environment:
-#      - "hoteles-port=3306"
-#      - "hoteles-db=hoteles-db"
-#      - "reservas-host=reservas"
-#    restart: always
 
   hoteles-db:
     image: mysql:8.0.30
@@ -54,56 +10,45 @@ services:
       - "MYSQL_ROOT_PASSWORD=root"
       - "DEFAULT_ENCODING=UTF8"
 
-#  vuelos:
-#    build: ./vuelos
-#    ports:
-#      - "8084:8084"
-#    depends_on:
-#      - vuelos-db
-#    environment:
-#      - "vuelos-db=vuelos-db"
-#      - "reservas-host=reservas"
-#      - "vuelos-port=5432"
-#    restart: always
-#
-#  vuelosofer:
-#    build: ./vuelosofer
-#    ports:
-#      - "8085:8085"
-#    depends_on:
-#      - vuelos-db
-#    environment:
-#      - "vuelos-db=vuelos-db"
-#      - "reservas-host=reservas"
-#      - "vuelos-port=5432"
-#    restart: always
-#
-#  vuelos-db:
-#    image: postgres
-#    ports:
-#      - "5432:5432"
-#    environment:
-#      - "POSTGRES_USER=benedi"
-#      - "POSTGRES_PASSWORD=benedi"
-#      - "DEFAULT_ENCODING=UTF8"
-#      - "POSTGRES_DB=vuelosdb"
+  vuelos-db:
+    image: mongo:6.0
+    container_name: "vuelos-db"
+    ports:
+      - "27017:27017"
+    environment:
+      - "MONGO_INITDB_ROOT_USERNAME=root"
+      - "MONGO_INITDB_ROOT_PASSWORD=root"
+      - "MONGO_INITDB_DATABASE=vuelosdb"
+#    volumes:
+#      - vuelos-data:/data/db
+
+  reservas-db:
+    image: mysql:8.0.30
+    ports:
+      - "3307:3306"
+    environment:
+      - "MYSQL_DATABASE=reservasdb"
+      - "MYSQL_ROOT_PASSWORD=root"
+      - "DEFAULT_ENCODING=UTF8"
 
   servicio-eureka-server:
     build: ./springboot-servicio-eureka-server
     ports:
       - "8761:8761"
-#    networks:
-#      - microservice-network
     depends_on:
       - servicio-config-server
+    environment:
+      - "EUREKA_HOST=servicio-eureka-server"
+      - "GATEWAY_HOST=servicio-gateway-server"
     restart: always
 
   servicio-config-server:
     build: ./springboot-servicio-config-server
     ports:
       - "8888:8888"
-#    environment:
-#      eureka.client.service-url.defaultZone: http://eureka-server:8761/eureka
+    environment:
+      - "EUREKA_HOST=servicio-eureka-server"
+      - "GATEWAY_HOST=servicio-gateway-server"
     restart: always
 
   servicio-gateway-server:
@@ -113,9 +58,11 @@ services:
     depends_on:
       - servicio-config-server
       - servicio-eureka-server
-#    environment:
-#      eureka.client.service-url.defaultZone: http://eureka-server:8761/eureka
-#      spring.cloud.config.uri: http://config-server:8888
+    environment:
+      - "EUREKA_HOST=servicio-eureka-server"
+      - "CONFIG_HOST=servicio-config-server"
+      - "ZIPKIN_HOST=zipkin"
+      - "RABBITMQ_HOST=rabbitmq"
     restart: always
 
   rabbitmq:
@@ -145,3 +92,6 @@ services:
 
 networks:
   local:
+#
+#volumes:
+#  vuelos-data:

@@ -10,8 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController()
-@RequestMapping("/vuelos")
+
 public interface VueloController {
 
     @ApiOperation(value = "Obtenemos una vuelo con su descuento")

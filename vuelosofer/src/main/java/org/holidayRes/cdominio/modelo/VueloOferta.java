@@ -1,28 +1,21 @@
 package org.holidayRes.cdominio.modelo;
 
 import lombok.*;
-import org.springframework.data.couchbase.core.mapping.Document;
-import org.springframework.data.couchbase.core.mapping.Field;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Document
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
 @Getter
 @Setter
 public class VueloOferta {
     @Id
-    String id;
-    @Field
-    String idVuelo;
-    @Field
-    Double numAsientos;
-    @Field
-    Double precioAsiento;
-    @Field
-    Double costeTotal;
+    private String id;
+    private String idVuelo;
+    private Double numAsientos;
+    private Double precioAsiento;
+    private Double costeTotal;
 }
