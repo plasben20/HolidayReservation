@@ -44,6 +44,12 @@ Servicios
 Se inyectan y se utilizan los repositorios en los servicios como se haría normalmente, no es necesario ninguna
 modificación en estos.
 
+Inicialización de datos
+
+Nos creamos una clase para inicializar los datos del documento vuelos
+
+![](../../Imágenes/Capturas de pantalla/Captura desde 2022-11-08 16-42-52.png)
+
 # Problemas Encontrados
 Para esta práctica, he seguido varios tutoriales y son cambios simples, pero tengo problemas para que
 me cree la base de datos en mongo y añada los datos de inicialización de vuelos.

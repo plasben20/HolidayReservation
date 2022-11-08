@@ -19,8 +19,8 @@ services:
       - "MONGO_INITDB_ROOT_USERNAME=root"
       - "MONGO_INITDB_ROOT_PASSWORD=root"
       - "MONGO_INITDB_DATABASE=vuelosdb"
-#    volumes:
-#      - vuelos-data:/data/db
+    volumes:
+      - database:/data/db
 
   reservas-db:
     image: mysql:8.0.30
@@ -92,6 +92,6 @@ services:
 
 networks:
   local:
-#
-#volumes:
-#  vuelos-data:
+
+volumes:
+  database:

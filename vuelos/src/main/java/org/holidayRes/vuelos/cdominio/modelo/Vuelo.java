@@ -5,7 +5,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.persistence.Id;
 
-@Document(collection = "Vuelo")
+@Document(collection = "vuelo")
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
