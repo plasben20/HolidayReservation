@@ -47,6 +47,7 @@
     <connection id="7feecca3-3efd-4aef-94e2-4c20a1e9cd77" />
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
+    <filter-actions connection-id="3b86685f-efb8-4a83-8175-1dbd04eb5bb0" dataset="hotelesdb.hoteles" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="3b86685f-efb8-4a83-8175-1dbd04eb5bb0" dataset="hotelesdb.hotel" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="3b86685f-efb8-4a83-8175-1dbd04eb5bb0" dataset="hotelesdb.hotel_oferta" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="7feecca3-3efd-4aef-94e2-4c20a1e9cd77" dataset="public.vuelo" active-filter-id="EMPTY_FILTER" />

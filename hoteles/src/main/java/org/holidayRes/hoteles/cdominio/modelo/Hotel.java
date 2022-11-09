@@ -1,31 +1,29 @@
 package org.holidayRes.hoteles.cdominio.modelo;
 
 import lombok.*;
-import org.springframework.data.couchbase.core.mapping.Document;
-import org.springframework.data.couchbase.core.mapping.Field;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-@Document
+
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Table(name = "Hoteles")
 @Getter
 @Setter
 public class Hotel {
     @Id
-    String id;
-
-    @Field
-    String destino;
-
-    @Field
-    Double numHabitaciones;
-
-    @Field
-    Double precioHabitacion;
-
-    @Field
-    Double precioTotal;
+    private String id;
+    @Column
+    private String destino;
+    @Column
+    private Double numHabitaciones;
+    @Column
+    private Double precioHabitacion;
+    @Column
+    private Double precioTotal;
 }

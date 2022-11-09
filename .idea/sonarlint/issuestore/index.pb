@@ -66,8 +66,6 @@ Sreservas/src/main/java/org/holidayRes/reservas/baplicacion/modelo/ReservaModel.
 É
 Shotelesofer/src/main/java/org/holidayRes/ainfraestructura/modelo/HotelResponse.java,4/4/447801fedc5d816ff3cdbd20e39b566e03850de3
 á
-Whotelesofer/src/main/java/org/holidayRes/cdominio/repository/HotelOfertaRepository.java,4/2/42e3f8519a3633c9c52d3959c261274765ba3ff9
-á
 Wreservas/src/main/java/org/holidayRes/reservas/ainfraestructura/dto/ReservaRequest.java,2/c/2c552c1a80d3f185e1738413ef74ead174a7640c
 ç
 ]hotelesofer/src/main/java/org/holidayRes/ainfraestructura/modelo/ListHotelOfertaResponse.java,e/b/eb6c397af665202c5adf8efb7da05556f4c2ac9d
@@ -93,8 +91,6 @@ Vreservas/src/main/java/org/holidayRes/reservas/ainfraestructura/dto/VueloRespon
 Xhotelesofer/src/main/java/org/holidayRes/ainfraestructura/modelo/HotelOfertaRequest.java,8/6/86b17837606ba5ec990b70579f84a7cd85168d53
 Å
 Qhotelesofer/src/main/java/org/holidayRes/baplicacion/modelo/HotelOfertaModel.java,f/8/f810d9b94ff6214b90b0c6debf46f953735375e1
-y
-Ihotelesofer/src/main/java/org/holidayRes/cdominio/modelo/HotelOferta.java,2/1/215cffbbab4f3346162694a1e031b6994e1a9e94
 Ü
 Vreservas/src/main/java/org/holidayRes/reservas/ainfraestructura/dto/HotelResponse.java,4/4/44f3e27013293d7965fb8a6183c3e8922ed31bdc
 Ö
@@ -103,12 +99,8 @@ Ureservas/src/main/java/org/holidayRes/reservas/ainfraestructura/dto/VueloReques
 [reservas/src/main/java/org/holidayRes/reservas/ainfraestructura/dto/VueloOfertaRequest.java,1/3/135d27de341b83b832610eda769e9c938c0011b0
 å
 \reservas/src/main/java/org/holidayRes/reservas/ainfraestructura/dto/VueloOfertaResponse.java,b/e/beafc34bd5b20c7314adff1658b7a306169eb7be
-~
-Nvuelos/src/main/java/org/holidayRes/vuelos/baplicacion/mapper/VueloMapper.java,b/e/be3fa7d31d3ae1c19ed62fb70b5066c2885dc7a5
 s
 Choteles/src/main/java/org/holidayRes/hoteles/HotelesAplicacion.java,c/d/cd538a7b229423ece000e18550dc8501a7ad16ab
-å
-\vuelos/src/main/java/org/holidayRes/vuelos/ainfraestructura/config/SwaggerConfiguration.java,7/2/72c1c9f92facf20d0335856f8154fd100a23abe8
 é
 ^hoteles/src/main/java/org/holidayRes/hoteles/ainfraestructura/config/SwaggerConfiguration.java,e/8/e8cff6dd5554a49b30cda46573119eb5f0a4f7c4
 ã
@@ -121,8 +113,6 @@ Whoteles/src/main/java/org/holidayRes/hoteles/ainfraestructura/modelo/HotelRespo
 Yhoteles/src/main/java/org/holidayRes/hoteles/ainfraestructura/mapper/HotelRestMapper.java,4/6/46db953c51cccef3a4bafe687be34bd4aac2a264
 è
 _reservas/src/main/java/org/holidayRes/reservas/ainfraestructura/config/EurekaConfiguration.java,2/c/2cd1af3bdbda32bd6d2de1b02fbded2a98c52519
-ã
-[vuelos/src/main/java/org/holidayRes/vuelos/ainfraestructura/config/EurekaConfiguration.java,a/e/ae4d96d77df531b40fc66bef175b6f45d1251d58
 ó
 greservas/src/main/java/org/holidayRes/reservas/ainfraestructura/restclients/HotelReservaRestClient.java,2/8/28f7ed14bf53f50c5f384590671a1747d21e5795
 å
@@ -173,10 +163,6 @@ lspringboot-servicio-gateway-server/src/main/java/com/hiberus/ms/app/gateway/fil
 |springboot-servicio-gateway-server/src/main/java/com/hiberus/ms/app/gateway/filters/factory/EjemploGatewayFilterFactory.java,6/4/64f2a3b4e9ff0a3cd728fa7fddf951619d0897a6
 ç
 ]hoteles/src/main/java/org/holidayRes/hoteles/ainfraestructura/config/EurekaConfiguration.java,6/8/680058a91a76b9073abd91ce859b64f96bbf10b6
-v
-Fhotelesofer/src/main/java/org/holidayRes/HotelesOfertaAplicacion2.java,0/9/096b040adc0da954989cc87ec8d9154f3ab28611
-s
-Cvuelosofer/src/main/java/org/holidayRes/VuelosOfertaAplicacion.java,b/5/b59f25a553238a01e0e83a979de2c425f95c94de
 à
 Xhotelesofer/src/main/java/org/holidayRes/baplicacion/service/HotelOfertaServiceImpl.java,b/c/bcf9c2d7c1db121626ad6fc2f80fb03363cedcc6
 á
@@ -203,8 +189,6 @@ F
 ,springboot-servicio-eureka-server/Dockerfile,f/7/f7bab463eb071131aeb9a9a8796c1b91f495b190
 E
 vuelosofer/Dockerfile,d/e/de5cb7c94e70bff403ec1e4aed4d16492d0a5b2a
-C
-hotelesofer/pom.xml,c/d/cd7c3498fbe52da6524efd9d44d698cae0050a49
 ô
 ireservas/src/test/java/org/holidayRes/reservas/ainfraestructura/controller/ReservaControllerImplTest.java,9/6/968e171b6d86efea3442ce3846cca8e310d3c447
 ñ
@@ -218,17 +202,11 @@ ghotelesofer/src/test/java/org/holidayRes/ainfraestructura/controller/HotelOfert
 .gitignore,a/5/a5cc2925ca8258af241be7e5b0381edf30266302
 {
 Kreservas/src/main/java/org/holidayRes/reservas/cdominio/modelo/Reserva.java,2/f/2f2a7e92ee66a04b01123ed3cac7f2811c56aff5
-â
-Yvuelos/src/main/java/org/holidayRes/vuelos/ainfraestructura/modelo/ListVueloResponse.java,7/9/7933da2b885f51648ac8dce885de4cb3f64fcba3
-Ö
-Uvuelos/src/main/java/org/holidayRes/vuelos/ainfraestructura/modelo/VueloResponse.java,1/c/1ca5e4f7df1d6ade1871c89fc9c4bc6c839cc651
-Ñ
-Tvuelos/src/main/java/org/holidayRes/vuelos/ainfraestructura/modelo/VueloRequest.java,c/8/c88b8d5466e494e3f50a3526b91ff211a17b01f2
 Ö
 Uhoteles/src/main/java/org/holidayRes/hoteles/cdominio/repository/HotelRepository.java,f/2/f2f10ff93a7b58f01f841400910be01aac18cf2c
-?
-hoteles/pom.xml,9/1/9184233a0c6104d45191388a64c7a13bcaa65142
-B
-config/hoteles.yml,b/4/b4f0d1104d9fde8f6d7d96e93c85290c59fa647a
 á
 Wvuelos/src/main/java/org/holidayRes/vuelos/ainfraestructura/mapper/VueloRestMapper.java,a/5/a58fcf3e0902e4fbc854c7d61b2fd82986189c45
+E
+docker-compose_v1.yml,9/c/9ce0a47ccaffa9ad02d9525c97c82d469f471bf3
+P
+ readmeCambioVuelosSQL_a_Mongo.md,c/c/cce0b2d361105e05bfc8a060f815ed84e5da27aa

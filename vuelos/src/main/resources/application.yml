@@ -1,6 +1,6 @@
 spring:
+  config:
+    activate:
+      on-profile: default
   application:
     name: vuelos
-  cloud:
-    config:
-      uri: http://${CONFIG_SERVER:localhost}:8888

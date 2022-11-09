@@ -9,23 +9,23 @@
         <outputRelativeToContentRoot value="true" />
         <module name="springboot-servicio-config-server" />
         <module name="springboot-servicio-eureka-server" />
+        <module name="vuelosofer" />
         <module name="springboot-servicio-gateway-server" />
+        <module name="vuelos" />
+        <module name="reservas" />
+        <module name="hotelesofer" />
       </profile>
       <profile name="Annotation profile for HolidayReservation" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
-          <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct-processor/1.4.2.Final/mapstruct-processor-1.4.2.Final.jar" />
-          <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct/1.4.2.Final/mapstruct-1.4.2.Final.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct-processor/1.5.3.Final/mapstruct-processor-1.5.3.Final.jar" />
+          <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct/1.5.3.Final/mapstruct-1.5.3.Final.jar" />
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.24/lombok-1.18.24.jar" />
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok-mapstruct-binding/0.2.0/lombok-mapstruct-binding-0.2.0.jar" />
         </processorPath>
-        <module name="hotelesofer" />
-        <module name="vuelosofer" />
         <module name="hoteles" />
-        <module name="reservas" />
-        <module name="vuelos" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -42,7 +42,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="HolidayReservation" options="" />
-      <module name="hoteles" options="-parameters" />
+      <module name="hoteles" options="-parameters -Amapstruct.defaultComponentModel=spring" />
       <module name="hotelesofer" options="-parameters" />
       <module name="reservas" options="-parameters" />
       <module name="springboot-servicio-config-server" options="-parameters" />

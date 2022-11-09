@@ -1,18 +1,18 @@
 package org.holidayRes.vuelos;
 
+import lombok.extern.slf4j.Slf4j;
 import org.holidayRes.vuelos.cdominio.modelo.Vuelo;
 import org.holidayRes.vuelos.cdominio.repository.VueloRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Profile;
-
-
 
 @Configuration
-@Profile("testVuelo")
+@Slf4j
 class InicializarDatos {
-    final String DEFAULT_IDENTIFIER = "HOT-123-450";
+    final String DEFAULT_IDENTIFIER = "VUE-123-450";
+    final String DEFAULT_IDENTIFIER2 = "VUE-123-456";
+    final String DEFAULT_IDENTIFIER3 = "VUE-00001-001";
     final String DEFAULT_ORIGEN = "Zaragoza";
     final String DEFAULT_DESTINO = "MADRID";
     final Double DEFAULT_NUMERO_ASIENTOS = 250d;
@@ -30,6 +30,9 @@ class InicializarDatos {
         return args -> {
             //MongoCredential.createCredential(username,database,password.toCharArray());
             repository.save(new Vuelo(DEFAULT_IDENTIFIER, DEFAULT_ORIGEN, DEFAULT_DESTINO, DEFAULT_NUMERO_ASIENTOS, DEFAULT_PRECIO_ASIENTO, DEFAULT_COSTE_TOTAL));
+            repository.save(new Vuelo(DEFAULT_IDENTIFIER2, DEFAULT_ORIGEN, DEFAULT_DESTINO, DEFAULT_NUMERO_ASIENTOS, DEFAULT_PRECIO_ASIENTO, DEFAULT_COSTE_TOTAL));
+            log.info(String.valueOf(repository.findById(DEFAULT_IDENTIFIER)));
+            log.info(String.valueOf(repository.findById(DEFAULT_IDENTIFIER).get().getDestino()));
         };
     }
 }

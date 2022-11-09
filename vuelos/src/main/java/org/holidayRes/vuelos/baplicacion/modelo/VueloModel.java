@@ -1,7 +1,6 @@
 package org.holidayRes.vuelos.baplicacion.modelo;
 
 import lombok.*;
-import org.springframework.data.couchbase.core.mapping.Field;
 
 @Data
 @Builder

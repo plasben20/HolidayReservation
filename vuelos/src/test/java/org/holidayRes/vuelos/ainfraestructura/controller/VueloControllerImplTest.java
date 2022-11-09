@@ -21,37 +21,37 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@AutoConfigureMockMvc
-@AutoConfigureDataMongo
-@SpringBootTest
-@ActiveProfiles("testVuelo")
-@Profile("testVuelo")
-@DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
+//@AutoConfigureMockMvc
+//@AutoConfigureDataMongo
+//@SpringBootTest
+//@ActiveProfiles("testVuelo")
+//@Profile("testVuelo")
+//@DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
 class VueloControllerImplTest {
 
-    @Autowired
-    private MockMvc mockMvc;
-
-    Gson gson = new Gson();
-
-    @MockBean
-    VueloServiceImpl vueloService;
-
-    @Test
-    void getVuelobyReferencia() throws Exception {
-        VueloModel hotelModel = VueloModel.builder()
-                .id("VUE-12345-123")
-                .origen("Madrid")
-                .destino("Zaragoza")
-                .numAsientos(10D)
-                .precioAsiento(100D)
-                .costeTotal(1000D)
-                .build();
-
-        Mockito.when(vueloService.findVueloById("VUE-12345-123")).thenReturn(hotelModel);
-
-        mockMvc.perform(get("/vuelos/VUE-12345-123").contentType(MediaType.APPLICATION_JSON)
-                ).andExpect(status().isOk())
-                .andDo(print());
-    }
+//    @Autowired
+//    private MockMvc mockMvc;
+//
+//    Gson gson = new Gson();
+//
+//    @MockBean
+//    VueloServiceImpl vueloService;
+//
+//    @Test
+//    void getVuelobyReferencia() throws Exception {
+//        VueloModel hotelModel = VueloModel.builder()
+//                .id("VUE-12345-123")
+//                .origen("Madrid")
+//                .destino("Zaragoza")
+//                .numAsientos(10D)
+//                .precioAsiento(100D)
+//                .costeTotal(1000D)
+//                .build();
+//
+//        Mockito.when(vueloService.findVueloById("VUE-12345-123")).thenReturn(hotelModel);
+//
+//        mockMvc.perform(get("/vuelos/VUE-12345-123").contentType(MediaType.APPLICATION_JSON)
+//                ).andExpect(status().isOk())
+//                .andDo(print());
+//    }
 }
