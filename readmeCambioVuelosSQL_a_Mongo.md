@@ -10,16 +10,16 @@ tenemos que realizar una serie de pasos:
 
 El archivo docker-compose.yml lo modifico cambiando la base de datos a Mongodb
 
-![](../../Imágenes/Capturas de pantalla/Captura desde 2022-11-08 16-05-24.png)
+![](imagenes/Captura desde 2022-11-08 16-05-24.png)
 
 Dependencias
 
 Una vez tenemos la base de datos dockerizada, tenemos que añadir dependencias en los módulos asignados a hacer uso de ella.
 También hay que modificar el fichero de configuración dentro de resources en caso de Intellij, application.yml o application.properties.
 
-![](../../Imágenes/Capturas de pantalla/Captura desde 2022-11-08 16-07-48.png)
+![](imagenes/Captura desde 2022-11-08 16-07-48.png)
 
-![](../../Imágenes/Capturas de pantalla/Captura desde 2022-11-08 16-09-01.png)
+![](imagenes/Captura desde 2022-11-08 16-09-01.png)
 
 
 
@@ -48,7 +48,7 @@ Inicialización de datos
 
 Nos creamos una clase para inicializar los datos del documento vuelos
 
-![](../../Imágenes/Capturas de pantalla/Captura desde 2022-11-08 16-42-52.png)
+![](imagenes/Captura desde 2022-11-08 16-42-52.png)
 
 # Problemas Encontrados
 Para esta práctica, he seguido varios tutoriales y son cambios simples, pero tengo problemas para que
